@@ -1,0 +1,24 @@
+{
+  "name": "cbt-selenium",
+  "version": "1.0.0",
+  "description": "Automated UI testing using crossbrowsertesting.com's selenium api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joncclark11/cbt-selenium.git"
+  },
+  "keywords": [],
+  "author": "Jon C Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joncclark11/cbt-selenium/issues"
+  },
+  "homepage": "https://github.com/joncclark11/cbt-selenium#readme",
+  "dependencies": {
+    "mocha": "^3.2.0",
+    "selenium-webdriver": "^3.0.1"
+  }
+}
