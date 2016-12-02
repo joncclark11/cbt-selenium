@@ -5,7 +5,7 @@ var assert = require('assert');
 var LoginPage = require('../pages/LoginPage');
 
 test.describe('Login', function() {
-    this.timeout(30000);
+    this.timeout(40000);
     var driver;
     var login;
 
@@ -27,9 +27,9 @@ test.describe('Login', function() {
     });
 
     test.it('with invalid credentials', function() {
-        login.with('tomsmith', 'badpassword');
+        login.with('tomsmith', 'bad password');
         login.failureMessagePresent().then(function(elementDisplayed) {
             assert.equal(elementDisplayed, true, 'Failure message not displayed');
-        })
-    })
+        });
+    });
 });
