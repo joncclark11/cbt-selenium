@@ -1,9 +1,10 @@
 'use strict';
+
 var driver,
     Promise = require('selenium-webdriver').promise,
     Until = require('selenium-webdriver').until;
 
-function BasePage() {
+function BasePage(driver) {
     this.driver = driver;
 }
 
@@ -24,10 +25,20 @@ BasePage.prototype.type = function(locator, inputText) {
 };
 
 BasePage.prototype.isDisplayed = function(locator) {
-    return this.find(locator).isDisplayed();
+    var defer = Promise.defer();
+    this.find(locator).isDisplayed().then(function(isDisplayed) {
+        defer.fulfill(isDisplayed);
+    }, function(error) {
+        if (error.name === 'NoSuchElementError') {
+            defer.fulfill(false);
+        } else {
+            defer.reject(error);
+        }
+    });
+    return defer.promise;
 };
 
-BasePage.prototype.waitForIsDisplayed = function(locator, timeout = 30000) {
+BasePage.prototype.waitForIsDisplayed = function(locator, timeout) {
     var defer = Promise.defer();
     var driver = this.driver;
     driver.wait(Until.elementLocated(locator), timeout).then(function() {

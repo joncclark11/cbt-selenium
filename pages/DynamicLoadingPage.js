@@ -12,12 +12,12 @@ DynamicLoadingPage.prototype = Object.create(BasePage.prototype);
 DynamicLoadingPage.prototype.constructor = DynamicLoadingPage;
 
 DynamicLoadingPage.prototype.loadExample = function(exampleNumber) {
-    this.visit('http://the-internet.herokuapp.com/dynamic_loading/' + exampleNumber);
+    this.visit('http://the-internet.herokuapp.com/dynamic_loading/'+ exampleNumber);
     this.click(START_BUTTON);
 };
 
 DynamicLoadingPage.prototype.finishTextPresent = function() {
-    return this.waitForIs Displayed(FINISHED_TEXT, 10000);
+    return this.waitForIsDisplayed(FINISH_TEXT, 60000);
 };
 
 module.exports = DynamicLoadingPage;
