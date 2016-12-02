@@ -12,10 +12,6 @@ test.describe('Dynamic Loading', function() {
         dynamicLoading = new DynamicLoadingPage(global.driver);
     });
 
-    test.afterEach(function() {
-        driver.quit();
-    });
-
     test.it('hidden element', function() {
         dynamicLoading.loadExample('1');
         dynamicLoading.finishTextPresent().then(function(elementDisplayed) {

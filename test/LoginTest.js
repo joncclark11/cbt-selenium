@@ -12,11 +12,6 @@ test.describe('Login', function() {
         login = new LoginPage(global.driver);
     });
 
-    test.afterEach(function() {
-        driver.manage().deleteAllCookies();
-        driver.quit();
-    });
-
     test.it('with valid credentials', function() {
         login.with('tomsmith', 'SuperSecretPassword!');
         login.successMessagePresent().then(function(elementDisplayed) {
