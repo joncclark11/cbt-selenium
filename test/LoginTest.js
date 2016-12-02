@@ -1,17 +1,15 @@
 'use strict';
-var webdriver = require('selenium-webdriver');
 var test = require('selenium-webdriver/testing');
 var assert = require('assert');
+var BaseTest = require('./BaseTest');
 var LoginPage = require('../pages/LoginPage');
 
 test.describe('Login', function() {
-    this.timeout(40000);
-    var driver;
+    this.timeout(global.testTimeout);
     var login;
 
     test.beforeEach(function() {
-        driver = new webdriver.Builder().forBrowser('firefox').build();
-        login = new LoginPage(driver);
+        login = new LoginPage(global.driver);
     });
 
     test.afterEach(function() {
