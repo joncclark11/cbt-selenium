@@ -12,5 +12,7 @@ test.beforeEach(function() {
 
 test.afterEach(function() {
     this.timeout(global.testTimeout);
-    driverFactory.quit();
+    var testName = this.currentTest.fullTitle(),
+        testResult = (this.currentTest.state === 'passed') ? true : false;
+    driverFactory.quit(testName, testResult);
 });

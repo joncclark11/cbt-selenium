@@ -15,7 +15,7 @@ test.describe('Login', function() {
     test.it('with valid credentials', function() {
         login.with('tomsmith', 'SuperSecretPassword!');
         login.successMessagePresent().then(function(elementDisplayed) {
-            assert.equal(elementDisplayed, false, "Success message not displayed");
+            assert.equal(elementDisplayed, true, "Success message not displayed");
         });
     });
 

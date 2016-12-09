@@ -17,7 +17,7 @@ DynamicLoadingPage.prototype.loadExample = function(exampleNumber) {
 };
 
 DynamicLoadingPage.prototype.finishTextPresent = function() {
-    return this.waitForIsDisplayed(FINISH_TEXT, 60000);
+    return this.waitForIsDisplayed(FINISH_TEXT, 10000);
 };
 
 module.exports = DynamicLoadingPage;
